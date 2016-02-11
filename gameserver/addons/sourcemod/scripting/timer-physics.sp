@@ -574,7 +574,7 @@ public Action:OnPlayerRunCmd(client, &buttons, &impulse, Float:vel[3], Float:ang
 	new bool:oldgroundstatus = g_bStayOnGround[client];
 	new bool:onground = bool:(GetEntityFlags(client) & FL_ONGROUND);
 	
-	if(onground && !oldgroundstatus)
+	if(onground && !oldgroundstatus && g_bAutoDisable[client])
 		SetEntityGravity(client, g_Physics[style][StyleGravity]);
 
 	new Float:vecVelocity[3];
